@@ -1,0 +1,10 @@
+---
+
+- name: Get Current User
+  command: id -a
+  register: id
+  become: '{{ test_become }}'
+
+- name: Current user is...
+  debug:
+    msg: '{{ id.stdout }}'
