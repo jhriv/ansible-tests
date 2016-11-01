@@ -1,0 +1,23 @@
+---
+
+  - hosts: localhost
+
+    vars_prompt:
+      - name: test_var1
+        prompt: "Please enter your name"
+        private: no
+
+      - name: test_var2
+        prompt: "Please enter your password"
+        private: yes
+
+      - name: test_var3
+        prompt: "Please enter your age"
+        default: 21
+
+    tasks:
+      - debug:
+          msg: >
+            Hello, {{ test_var1 }}
+            Your password is now "{{ test_var2 }}"
+            I conclude you are {{ test_var3 | int + 0 }} years old.
