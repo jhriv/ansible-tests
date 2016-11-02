@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  vars_prompt:
+
+    - name: x
+      prompt: x
+      private: false
+
+  tasks:
+
+    - name: conversions
+      debug:
+        msg: >
+          [ {{ x }} | to_json: {{ x | to_json }} ]
+          [ {{ x }} | to_nice_json: {{ x | to_nice_json }} ]
+          [ {{ x }} | to_yaml: {{ x | to_yaml }} ]
+          [ {{ x }} | to_nice_yaml: {{ x | to_nice_yaml }} ]
+          [ {{ x }} | int: {{ x | int }} ]
+          [ {{ x }} | first: {{ x | first }} ]

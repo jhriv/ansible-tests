@@ -1,0 +1,43 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  vars_prompt:
+
+    - name: x
+      prompt: x
+      private: false
+
+    - name: y
+      prompt: y
+      private: false
+
+  tasks:
+
+    - name: integer math
+      debug:
+        msg: >
+          [ {{ x }} + {{ y }}: {{ x|int + y|int }} ]
+          [ {{ x }} - {{ y }}: {{ x|int - y|int }} ]
+          [ {{ x }} / {{ y }}: {{ x|int / y|int }} ]
+          [ {{ x }} // {{ y }}: {{ x|int // y|int }} ]
+          [ {{ x }} % {{ y }}: {{ x|int % y|int }} ]
+          [ {{ x }} * {{ y }}: {{ x|int * y|int }} ]
+          [ {{ x }} ** {{ y }}: {{ x|int ** y|int }} ]
+
+    - name: float math
+      debug:
+        msg: >
+          [ {{ x }} + {{ y }}: {{ x|float + y|float }} ]
+          [ {{ x }} - {{ y }}: {{ x|float - y|float }} ]
+          [ {{ x }} / {{ y }}: {{ x|float / y|float }} ]
+          [ {{ x }} // {{ y }}: {{ x|float // y|float }} ]
+          [ {{ x }} % {{ y }}: {{ x|float % y|float }} ]
+          [ {{ x }} * {{ y }}: {{ x|float * y|float }} ]
+          [ {{ x }} ** {{ y }}: {{ x|float ** y|float }} ]
+
+    - name: '"string" math'
+      debug:
+        msg: >
+          [ {{ x }} + {{ y }}: {{ x + y }} ]
+          [ {{ x }} * {{ y }}: {{ x * y|int }} ]
