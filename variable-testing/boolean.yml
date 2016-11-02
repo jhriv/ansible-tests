@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  vars_prompt:
+
+    - name: x
+      prompt: x
+      private: false
+
+  tasks:
+
+    - name: boolean
+      debug:
+        msg: >
+          [ if {{ x }}|bool: {% if x|bool -%} True {%- else -%} False {%- endif %} ]
