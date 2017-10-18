@@ -1,0 +1,4 @@
+---
+# group_vars/group2/vars.yml
+
+group2_specific: 'part of group2'

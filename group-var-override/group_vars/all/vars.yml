@@ -1,0 +1,10 @@
+---
+# group_vars/all/vars.yml
+
+all_specific: 'part of all'
+
+command_line_specific: '{{ all_specific }}'
+group1_specific: '{{ all_specific }}'
+group2_specific: '{{ all_specific }}'
+host1_specific: '{{ all_specific}}'
+included_specific: '{{ all_specific }}'

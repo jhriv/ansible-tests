@@ -1,0 +1,22 @@
+---
+
+- name: Testing variable definition precedence
+  hosts: all
+  gather_facts: false
+
+  tasks:
+
+  - name: Include the local variables
+    include_vars:
+      file: vars.yml
+
+  - name: Get list of all vars defined in group_vars/all
+    include_vars:
+      file: group_vars/all/vars.yml
+      name: list_of_vars
+
+  - name: Print all the vars and values
+    debug:
+      msg: '{{ item }} -> {{ hostvars[inventory_hostname][item] }}'
+    with_items:
+      '{{ list_of_vars.keys()|sort }}'

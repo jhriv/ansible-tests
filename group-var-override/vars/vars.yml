@@ -1,0 +1,6 @@
+---
+# vars/vars.yml
+
+included_specific: 'part of included'
+
+command_line_specific: '{{ included_specific }}'

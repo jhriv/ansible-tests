@@ -1,0 +1,8 @@
+---
+# group_vars/group1/vars.yml
+
+group1_specific: 'part of group1'
+
+command_line_specific: '{{ group1_specific }}'
+host1_specific: '{{ group1_specific }}'
+included_specific: '{{ group1_specific }}'
